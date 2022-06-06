@@ -17,7 +17,7 @@ PubkeyAuthentication yes
 IgnoreRhosts yes
 HostbasedAuthentication no
 PermitEmptyPasswords no
-ChallengeResponseAuthentication no
+# ChallengeResponseAuthentication no
 X11Forwarding yes
 X11DisplayOffset 10
 PrintMotd no
@@ -30,6 +30,14 @@ PermitRootLogin no
 PidFile /run/sshd/sshd.pid
 AddressFamily any
 DebianBanner no
+
+# Added freeipa config
+
+UsePAM yes
+GSSAPIAuthentication yes
+ChallengeResponseAuthentication yes
+AuthorizedKeysCommandUser nobody
+AuthorizedKeysCommand /usr/bin/sss_ssh_authorizedkeys
 
 #
 # User configurable section
