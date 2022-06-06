@@ -70,5 +70,5 @@ jobs:
           # See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./vyos-1x_${{ env.VYOS_1X_VERSION }}_amd64.deb
-          asset_name: vyos-1x_${{ env.VYOS_1X_VERSION }}_amd64.deb
+          asset_name: vyos-1x_amd64.deb
           asset_content_type: application/vnd.debian.binary-package
