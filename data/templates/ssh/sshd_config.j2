@@ -31,6 +31,14 @@ AddressFamily any
 DebianBanner no
 KbdInteractiveAuthentication no
 
+# Added freeipa config
+
+UsePAM yes
+GSSAPIAuthentication yes
+ChallengeResponseAuthentication yes
+AuthorizedKeysCommandUser nobody
+AuthorizedKeysCommand /usr/bin/sss_ssh_authorizedkeys
+
 #
 # User configurable section
 #
