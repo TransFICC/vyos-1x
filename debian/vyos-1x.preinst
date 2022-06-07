@@ -9,3 +9,26 @@ dpkg-divert --package vyos-1x --add --no-rename /etc/netplug/netplugd.conf
 dpkg-divert --package vyos-1x --add --no-rename /etc/netplug/netplug
 dpkg-divert --package vyos-1x --add --no-rename /etc/rsyslog.d/45-frr.conf
 dpkg-divert --package vyos-1x --add --no-rename /lib/udev/rules.d/99-systemd.rules
+dpkg-divert --package vyos-1x --add --rename /usr/share/pam-configs/radius
+# relocate customised files
+mkdir -p /config/freeipa/etc/{pam.d,sssd,telegraf} /config/freeipa/{root,usr/local/share,var/lib}
+dpkg-divert --package vyos-1x --add --rename /etc/krb5.conf --divert /config/freeipa/etc/krb5.conf
+dpkg-divert --package vyos-1x --add --rename /etc/krb5.conf.d --divert /config/freeipa/etc/krb5.conf.d
+dpkg-divert --package vyos-1x --add --rename /etc/nslcd.conf --divert /config/freeipa/etc/nslcd.conf
+dpkg-divert --package vyos-1x --add --rename /etc/nsswitch.conf --divert /config/freeipa/etc/nsswitch.conf
+dpkg-divert --package vyos-1x --add --rename /etc/pam.d/common-account --divert /config/freeipa/etc/pam.d/common-account
+dpkg-divert --package vyos-1x --add --rename /etc/pam.d/common-account-ldaps --divert /config/freeipa/etc/pam.d/common-account-ldaps
+dpkg-divert --package vyos-1x --add --rename /etc/pam.d/common-auth --divert /config/freeipa/etc/pam.d/common-auth
+dpkg-divert --package vyos-1x --add --rename /etc/pam.d/common-auth-ldaps --divert /config/freeipa/etc/pam.d/common-auth-ldaps
+dpkg-divert --package vyos-1x --add --rename /etc/pam.d/common-session --divert /config/freeipa/etc/pam.d/common-session
+dpkg-divert --package vyos-1x --add --rename /etc/pam.d/common-session-ldaps --divert /config/freeipa/etc/pam.d/common-session-ldaps
+dpkg-divert --package vyos-1x --add --rename /etc/pam.d/common-session-noninteractive --divert /config/freeipa/etc/pam.d/common-session-noninteractive
+dpkg-divert --package vyos-1x --add --rename /etc/pam.d/common-session-noninteractive-ldaps --divert /config/freeipa/etc/pam.d/common-session-noninteractive-ldaps
+dpkg-divert --package vyos-1x --add --rename /etc/sssd/conf.d --divert /config/freeipa/etc/sssd/conf.d
+dpkg-divert --package vyos-1x --add --rename /etc/sssd/pki --divert /config/freeipa/etc/sssd/pki
+dpkg-divert --package vyos-1x --add --rename /etc/sssd/sssd.conf --divert /config/freeipa/etc/sssd/sssd.conf
+dpkg-divert --package vyos-1x --add --rename /etc/telegraf/telegraf.conf --divert /config/freeipa/etc/telegraf/telegraf.conf
+dpkg-divert --package vyos-1x --add --rename /etc/telegraf/telegraf.d --divert /config/freeipa/etc/telegraf/telegraf.d
+dpkg-divert --package vyos-1x --add --rename /root/.k5login --divert /config/freeipa/root/.k5login
+dpkg-divert --package vyos-1x --add --rename /usr/local/share/ca-certificates --divert /config/freeipa/usr/local/share/ca-certificates
+dpkg-divert --package vyos-1x --add --rename /var/lib/ipa-client --divert /config/freeipa/var/lib/ipa-client
