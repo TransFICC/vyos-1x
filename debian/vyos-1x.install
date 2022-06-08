@@ -5,6 +5,7 @@ etc/logrotate.d
 etc/netplug
 etc/opennhrp
 etc/modprobe.d
+etc/pam.d
 etc/ppp
 etc/rsyslog.conf
 etc/securetty
@@ -17,6 +18,7 @@ etc/telegraf
 etc/udev
 etc/update-motd.d
 etc/vyos
+etc/nslcd.conf
 lib/
 opt/
 srv/localui
