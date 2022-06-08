@@ -4,6 +4,7 @@ etc/ipsec.d
 etc/logrotate.d
 etc/netplug
 etc/opennhrp
+etc/pam.d
 etc/ppp
 etc/rsyslog.d
 etc/securetty
@@ -15,6 +16,7 @@ etc/telegraf
 etc/udev
 etc/update-motd.d
 etc/vyos
+etc/nslcd.conf
 lib/
 opt/
 usr/sbin
