@@ -1,0 +1,5 @@
+#%PAM-1.0
+
+@include common-auth-ldaps
+@include common-account-ldaps
+@include common-session-noninteractive-ldaps
