@@ -1,0 +1,30 @@
+Name: Unix authentication
+Default: yes
+Priority: 256
+Auth-Type: Primary
+Auth:
+        [success=ok default=1]    pam_localuser.so
+        [success=end default=ignore]    pam_unix.so nullok try_first_pass
+Auth-Initial:
+        [success=ok default=1]    pam_localuser.so
+        [success=end default=ignore]    pam_unix.so nullok
+Account-Type: Primary
+Account:
+        [success=ok default=1]    pam_localuser.so
+        [success=end new_authtok_reqd=done default=ignore]      pam_unix.so
+Account-Initial:
+        [success=ok default=1]    pam_localuser.so
+        [success=end new_authtok_reqd=done default=ignore]      pam_unix.so
+Session-Type: Additional
+Session:
+        required        pam_unix.so
+Session-Initial:
+        required        pam_unix.so
+Password-Type: Primary
+Password:
+        [success=ok default=1]    pam_localuser.so
+        [success=end default=ignore]    pam_unix.so obscure use_authtok try_first_pass yescrypt
+Password-Initial:
+        [success=ok default=1]    pam_localuser.so
+        [success=end default=ignore]    pam_unix.so obscure yescrypt
+
