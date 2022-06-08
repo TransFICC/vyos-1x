@@ -12,6 +12,12 @@ on: # yamllint disable-line rule:truthy
     branches: [ current ]
   pull_request:
     branches: [ current ]
+  workflow_dispatch:
+    inputs:
+      source:
+        description: 'Source of event'
+        required: false
+        default: 'No source specified'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
