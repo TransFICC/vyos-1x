@@ -26,9 +26,9 @@ dpkg-divert --package vyos-1x --divert /config/freeipa/root/.k5login --add --ren
 
 # override pam config
 mkdir /usr/share/pam-configs.distrib
+dpkg-divert --package vyos-1x --add --rename /etc/pam.d/sudo
 dpkg-divert --package vyos-1x --divert /usr/share/pam-configs.distrib/ldap --add --rename /usr/share/pam-configs/ldap
 dpkg-divert --package vyos-1x --divert /usr/share/pam-configs.distrib/sss --add --rename /usr/share/pam-configs/sss
 dpkg-divert --package vyos-1x --divert /usr/share/pam-configs.distrib/unix --add --rename /usr/share/pam-configs/unix
 rm /etc/pam.d/common-account /etc/pam.d/common-auth /etc/pam.d/common-password /etc/pam.d/common-session /etc/pam.d/common-session-noninteractive
-pam-auth-update --package --remove ldap radius
-dpkg-divert --package vyos-1x --add --rename /etc/pam.d/sudo
+pam-auth-update --package --remove ldap radius --force
