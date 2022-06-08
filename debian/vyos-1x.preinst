@@ -15,10 +15,10 @@ mkdir -p /config/freeipa/etc/{pam.d,sssd,telegraf,sssd/pki} /config/freeipa/{roo
 dpkg-divert --package vyos-1x --divert /config/freeipa/etc/krb5.conf --add --rename /etc/krb5.conf
 dpkg-divert --package vyos-1x --divert /config/freeipa/etc/nslcd.conf --add --rename /etc/nslcd.conf
 dpkg-divert --package vyos-1x --divert /config/freeipa/etc/nsswitch.conf --add --rename /etc/nsswitch.conf
-dpkg-divert --package vyos-1x --divert /config/freeipa/etc/pam.d/common-account --add --rename /etc/pam.d/common-account
-dpkg-divert --package vyos-1x --divert /config/freeipa/etc/pam.d/common-auth --add --rename /etc/pam.d/common-auth
-dpkg-divert --package vyos-1x --divert /config/freeipa/etc/pam.d/common-session --add --rename /etc/pam.d/common-session
-dpkg-divert --package vyos-1x --divert /config/freeipa/etc/pam.d/common-session-noninteractive --add --rename /etc/pam.d/common-session-noninteractive
+# dpkg-divert --package vyos-1x --divert /config/freeipa/etc/pam.d/common-account --add --rename /etc/pam.d/common-account
+# dpkg-divert --package vyos-1x --divert /config/freeipa/etc/pam.d/common-auth --add --rename /etc/pam.d/common-auth
+# dpkg-divert --package vyos-1x --divert /config/freeipa/etc/pam.d/common-session --add --rename /etc/pam.d/common-session
+# dpkg-divert --package vyos-1x --divert /config/freeipa/etc/pam.d/common-session-noninteractive --add --rename /etc/pam.d/common-session-noninteractive
 dpkg-divert --package vyos-1x --divert /config/freeipa/etc/sssd/pki/sssd_auth_ca_db.pem --add --rename /etc/sssd/pki/sssd_auth_ca_db.pem
 dpkg-divert --package vyos-1x --divert /config/freeipa/etc/sssd/sssd.conf --add --rename /etc/sssd/sssd.conf
 dpkg-divert --package vyos-1x --divert /config/freeipa/etc/telegraf/telegraf.conf --add --rename /etc/telegraf/telegraf.conf
