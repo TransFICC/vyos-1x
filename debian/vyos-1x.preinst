@@ -23,6 +23,10 @@ dpkg-divert --package vyos-1x --divert /config/freeipa/etc/sssd/pki/sssd_auth_ca
 dpkg-divert --package vyos-1x --divert /config/freeipa/etc/sssd/sssd.conf --add --rename /etc/sssd/sssd.conf
 dpkg-divert --package vyos-1x --divert /config/freeipa/etc/telegraf/telegraf.conf --add --rename /etc/telegraf/telegraf.conf
 dpkg-divert --package vyos-1x --divert /config/freeipa/root/.k5login --add --rename /root/.k5login
+
+# override pam-configs
+pam-auth-update --package --remove sss ldap unix
 dpkg-divert --package vyos-1x --add --rename /usr/share/pam-configs/ldap
 dpkg-divert --package vyos-1x --add --rename /usr/share/pam-configs/sss
 dpkg-divert --package vyos-1x --add --rename /usr/share/pam-configs/unix
+pam-auth-update --package --enable unix sss
