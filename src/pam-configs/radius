@@ -1,5 +1,5 @@
 Name: RADIUS authentication
-Default: yes
+Default: no
 Priority: 257
 Auth-Type: Primary
 Auth:
