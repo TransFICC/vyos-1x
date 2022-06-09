@@ -97,6 +97,7 @@ override_dh_auto_install:
 	# Install etc configuration files
 	mkdir -p $(DIR)/etc
 	cp -r src/etc/* $(DIR)/etc
+	chmod ga-rwx $(DIR)/etc/sssd/conf.d/*
 
 	# Install PAM configuration snippets
 	mkdir -p $(DIR)/usr/share/pam-configs
