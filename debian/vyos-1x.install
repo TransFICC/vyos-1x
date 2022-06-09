@@ -15,7 +15,6 @@ etc/telegraf
 etc/udev
 etc/update-motd.d
 etc/vyos
-etc/nslcd.conf
 lib/
 opt/
 usr/sbin
