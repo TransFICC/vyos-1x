@@ -79,7 +79,46 @@ jobs:
           asset_name: vyos-1x_amd64.deb
           asset_content_type: application/vnd.debian.binary-package
 
+      - name: Upload vmware release asset
+        id: upload-release-asset-2
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`.
+          # See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./vyos-1x-vmware_${{ env.VYOS_1X_VERSION }}_amd64.deb
+          asset_name: vyos-1x-vmware_amd64.deb
+          asset_content_type: application/vnd.debian.binary-package
+
+      - name: Upload dbgsym release asset
+        id: upload-release-asset-3
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`.
+          # See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./vyos-1x-dbgsym_${{ env.VYOS_1X_VERSION }}_amd64.deb
+          asset_name: vyos-1x-dbgsym_amd64.deb
+          asset_content_type: application/vnd.debian.binary-package
+
+      - name: Upload smoketest release asset
+        id: upload-release-asset-4
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`.
+          # See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./vyos-1x-smoketest_${{ env.VYOS_1X_VERSION }}_all.deb
+          asset_name: vyos-1x-smoketest_all.deb
+          asset_content_type: application/vnd.debian.binary-package
+
 #     - name: Trigger vyos-build
 #       run: >-
-#         curl -XPOST -u "${{ secrets.GIT_CREDENTIALS }}" -H "Content-Type:application/json" https://api.github.com/repos/TransFICC/vyos-build/actions/workflows/main.yml/dispatches
+#         curl -XPOST --header "Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Content-Type:application/json" https://api.github.com/repos/TransFICC/vyos-build/actions/workflows/main.yml/dispatches
 #           --data '{"ref": "main" }
