@@ -12,3 +12,6 @@ Restart=always
 RestartPreventExitStatus=
 RestartSec=10
 RuntimeDirectoryPreserve=yes
+{% if vrf %}
+LimitMEMLOCK=8388608
+{% endif %}
