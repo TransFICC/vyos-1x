@@ -5,6 +5,7 @@ dpkg-divert --package vyos-1x --add --rename /etc/logrotate.d/conntrackd
 
 # relocate customised files
 dpkg-divert --package vyos-1x --add --rename /etc/nslcd.conf
+mv /etc/nslcd.conf /etc/nslcd.conf.bak
 
 # override pam config
 mkdir /usr/share/pam-configs.distrib
