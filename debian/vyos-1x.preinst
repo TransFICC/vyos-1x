@@ -12,6 +12,7 @@ dpkg-divert --package vyos-1x --add --no-rename /lib/udev/rules.d/99-systemd.rul
 dpkg-divert --package vyos-1x --add --rename /usr/share/pam-configs/radius
 # relocate customised files
 dpkg-divert --package vyos-1x --add --rename /etc/nslcd.conf
+mv /etc/nslcd.conf /etc/nslcd.conf.bak
 
 # override pam config
 mkdir /usr/share/pam-configs.distrib
