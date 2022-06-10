@@ -1,7 +1,7 @@
 Name: Require pam_group
 Default: yes
-Priority: 999
-Auth-Type: Primary
+Priority: 128
+Auth-Type: Additional
 Auth:
         required pam_group.so
 
