@@ -96,7 +96,6 @@ override_dh_auto_install:
 	# Install etc configuration files
 	mkdir -p $(DIR)/etc
 	cp -r src/etc/* $(DIR)/etc
-	chmod ga-rwx $(DIR)/etc/sssd/conf.d/*
 
 	# Install PAM configuration snippets
 	mkdir -p $(DIR)/usr/share/pam-configs
@@ -131,3 +130,8 @@ ifeq ($(DEB_TARGET_ARCH),amd64)
 	cp -r src/xdp/xdp_prog_kern.o $(DIR)/$(VYOS_DATA_DIR)/xdp
 	find src/xdp -perm /a+x -exec cp {} $(DIR)/$(VYOS_SBIN_DIR) \;
 endif
+
+# fix permissions
+override_dh_fixperms:
+	dh_fixperms
+	chmod ga-rwx $(DIR)/etc/sssd/conf.d/*
