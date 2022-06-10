@@ -15,7 +15,7 @@ dpkg-divert --package vyos-1x --add --rename /etc/nslcd.conf
 mv /etc/nslcd.conf /etc/nslcd.conf.bak
 
 # override pam config
-mkdir /usr/share/pam-configs.distrib
+mkdir -p /usr/share/pam-configs.distrib
 dpkg-divert --package vyos-1x --add --rename /etc/pam.d/sudo
 dpkg-divert --package vyos-1x --divert /usr/share/pam-configs.distrib/ldap --add --rename /usr/share/pam-configs/ldap
 dpkg-divert --package vyos-1x --divert /usr/share/pam-configs.distrib/sss --add --rename /usr/share/pam-configs/sss
