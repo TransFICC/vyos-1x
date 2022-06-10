@@ -113,3 +113,6 @@ done
 # Remove logrotate items controlled via CLI and VyOS defaults
 sed -i '/^\/var\/log\/messages$/d' /etc/logrotate.d/rsyslog
 sed -i '/^\/var\/log\/auth.log$/d' /etc/logrotate.d/rsyslog
+
+# Fix permissions on /etc/sssd/conf.d/disable_services.conf
+chmod go-rwx /etc/sssd/conf.d/disable_services.conf
