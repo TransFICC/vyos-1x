@@ -192,3 +192,6 @@ systemctl enable vyos-config-cloud-init.service
 
 # Update XML cache
 python3 /usr/lib/python3/dist-packages/vyos/xml_ref/update_cache.py
+
+# Fix permissions on /etc/sssd/conf.d/disable_services.conf
+chmod go-rwx /etc/sssd/conf.d/disable_services.conf
