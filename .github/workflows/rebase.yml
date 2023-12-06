@@ -15,4 +15,4 @@ jobs:
       - uses: imba-tjd/rebase-upstream-action@0.5
         with:
           upstream: vyos/vyos-1x
-          branch: current
+          branch: sagitta
