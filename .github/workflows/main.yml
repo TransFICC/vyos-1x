@@ -1,7 +1,6 @@
 ---
 # This is a basic workflow to help you get started with Actions
-# rebased against upstream/current = e01283e75aaf21bc171b4aa791206b498380c1eb
-# previously rebased against dc5e42b9daa97a35ab9fa4cb473b62b7abb146da
+# rebased against upstream/sagitta
 
 name: CI
 
@@ -9,9 +8,9 @@ name: CI
 # events but only for the current branch
 on: # yamllint disable-line rule:truthy
   push:
-    branches: [ current ]
+    branches: [ sagitta ]
   pull_request:
-    branches: [ current ]
+    branches: [ sagitta ]
   workflow_dispatch:
     inputs:
       source:
@@ -50,7 +49,7 @@ jobs:
       - name: Build custom vyos-1x
         run: |
           cd $GITHUB_WORKSPACE
-          docker run --rm --privileged --sysctl net.ipv6.conf.lo.disable_ipv6=0 -v $GITHUB_WORKSPACE:/vyos/vyos-1x -w /vyos/vyos-1x vyos/vyos-build:current \
+          docker run --rm --privileged --sysctl net.ipv6.conf.lo.disable_ipv6=0 -v $GITHUB_WORKSPACE:/vyos/vyos-1x -w /vyos/vyos-1x vyos/vyos-build:sagitta \
           bash -c "sudo chmod 777 ../; ls -latr ../; make all; make deb; mv ../*.deb ."
           find . -name '*.deb' -ls
           echo "VYOS_1X_VERSION=$(find . -name 'vyos-1x_1*.deb' | cut -f2 -d_)" >> $GITHUB_ENV
